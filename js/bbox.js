@@ -466,7 +466,7 @@ $(document).ready(function() {
     $( "#projection" ).val(currentproj);
 
     L.mapbox.accessToken = 'pk.eyJ1IjoiY3Vnb3MiLCJhIjoiY2p4Nm43MzA3MDFmZDQwcGxsMjB4Z3hnNiJ9.SQbnMASwdqZe6G4n6OMvVw';
-    map = L.mapbox.map('map').setView([0, 0], 3).addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/streets-v11'));
+    map = L.mapbox.map('map').setView([47.363856, -1.717086], 13).addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/streets-v11'));
 
     rsidebar = L.control.sidebar('rsidebar', {
         position: 'right',
@@ -804,7 +804,6 @@ $(document).ready(function() {
         });        
         // Set labels for output... left always 4326, right is proj selection
         $('#wgslabel').text('EPSG:4326 - ' + proj4defs['4326'][0]);
-        $('#projlabel').text('EPSG:3857 - ' + proj4defs['3857'][0]);
     }).fail(function( jqxhr, textStatus, error ) {
         var err = textStatus + ", " + error;
         console.log( "Request Failed: " + err );
