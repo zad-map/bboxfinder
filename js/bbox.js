@@ -485,8 +485,6 @@ $(document).ready(function() {
     
     map.addControl(rsidebar);
 
-    
-
     lsidebar = L.control.sidebar('lsidebar', {
         position: 'left'
     });
@@ -776,8 +774,11 @@ $(document).ready(function() {
     });
 
     // Add in a layer to overlay the tile bounds of the google grid
-    var tiles = new L.tileLayer('/images/tile.png', {});
+    var tiles = new L.tileLayer('images/tile.png', {});
     addLayer(tiles, '', "Google tile boundaries", 10, false)
+
+    var zadTiles = L.tileLayer('tiles/zad-2015/{z}/{x}/{y}.png', {tms: true, opacity: 0.7, attribution: "", minZoom: 11, maxZoom: 18})
+        .addTo(map);
 
     // Test getting the proj strings
     $.getJSON( "proj/proj4defs.json").done(function( data ) {
