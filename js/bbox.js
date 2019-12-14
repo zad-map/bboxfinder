@@ -465,8 +465,10 @@ $(document).ready(function() {
     // Have to init the projection input box as it is used to format the initial values
     $( "#projection" ).val(currentproj);
 
-    L.mapbox.accessToken = 'pk.eyJ1IjoiY3Vnb3MiLCJhIjoiY2p4Nm43MzA3MDFmZDQwcGxsMjB4Z3hnNiJ9.SQbnMASwdqZe6G4n6OMvVw';
-    map = L.mapbox.map('map').setView([47.363856, -1.717086], 13).addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/streets-v11'));
+    map = L.map('map').setView([47.363856, -1.717086], 13);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'})
+        .addTo(map);
 
     rsidebar = L.control.sidebar('rsidebar', {
         position: 'right',
